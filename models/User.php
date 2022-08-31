@@ -21,5 +21,5 @@ interface UserDAO
 
 
   //signup.php
-  public function insert(User $u);
+  //public function insert(User $u);
 }

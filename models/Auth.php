@@ -48,7 +48,7 @@ class Auth
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $newUser->name = $name;
     $newUser->email = $email;
-    $newUser->password = $hash;
+    $newUser->password >= $hash;
     $newUser->birthdate = $birthdate;
     $newUser->token = $token;
     $userDAO->insert($newUser);

@@ -15,16 +15,17 @@ if ($email && $password && $name && $birthdate) {
     header('Location:' . $base . '/signup.php');
     exit;
   }
-  /*$birthdate = $birthdate[2] . '-' . $birthdate[1] . '-' . $birtdate[0];
-  if (strtotime($birtdate) === false) {
-    $_SESSION['flash'] = 'Email e/ou  Senha ou data nascimento errado ! ';
+  $birthdate = $birthdate[2] . '-' . $birthdate[1] . '-' . $birthdate[0];
+  if (strtotime($birthdate) == false) {
+    $_SESSION['flash'] = 'Email e/ou  Senha ou data nascimento errado 6! ';
     header('Location:' . $base . '/signup.php');
     exit;
-  }*/
+  }
   if ($auth->emailsExists($email) == false) {
     $auth->registerUser($name, $email, $password, $birthdate);
     header('Location:' . $base);
-
+    echo $name . $password . $birthdate . $email;
+    //echo 'ssssssssss';
     exit;
   } else {
     $_SESSION['flash'] = 'Email ja Cadastrado! ';
